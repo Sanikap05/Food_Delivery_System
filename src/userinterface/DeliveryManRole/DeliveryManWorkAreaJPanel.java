@@ -118,15 +118,15 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             deliverOrderTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 70, 440, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 440, 96));
 
-        btnAssign.setText("Assign to me");
+        btnAssign.setText("Accept");
         btnAssign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignActionPerformed(evt);
             }
         });
-        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
 
         btnDeliver.setText("Delivered");
         btnDeliver.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +134,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 btnDeliverActionPerformed(evt);
             }
         });
-        add(btnDeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, -1, -1));
+        add(btnDeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, -1, -1));
 
         refreshJButton.setText("Reload");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +142,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignActionPerformed

@@ -9,6 +9,7 @@ import Business.Customer.Customer;
 import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 import Business.Employee.Employee;
+import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -59,21 +60,29 @@ public class UpdateInformationJPanel extends javax.swing.JPanel {
         usernameTextField = new javax.swing.JTextField();
         backJButton = new javax.swing.JButton();
         submitJButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 204, 204));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Username");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 102, -1, -1));
 
         jLabel3.setText("Password ");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 140, -1, -1));
 
         jLabel2.setText("Name");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 178, -1, -1));
+        add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 175, 138, -1));
 
         passwordTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordTextFieldActionPerformed(evt);
             }
         });
+        add(passwordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 137, 136, -1));
+        add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 99, 136, -1));
 
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +90,7 @@ public class UpdateInformationJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 235, -1, -1));
 
         submitJButton.setText("Submit");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -88,67 +98,28 @@ public class UpdateInformationJPanel extends javax.swing.JPanel {
                 submitJButtonActionPerformed(evt);
             }
         });
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 235, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Update Information");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(backJButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
-                .addComponent(submitJButton)
-                .addGap(43, 43, 43))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(160, 160, 160))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(58, 58, 58)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel3))
-                            .addGap(66, 66, 66)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(usernameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                                .addComponent(passwordTextField))))
-                    .addContainerGap(163, Short.MAX_VALUE)))
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
-                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backJButton)
-                    .addComponent(submitJButton))
-                .addGap(106, 106, 106))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(105, 105, 105)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(18, 18, 18)
-                    .addComponent(jLabel2)
-                    .addContainerGap(168, Short.MAX_VALUE)))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
         );
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void passwordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextFieldActionPerformed
@@ -200,7 +171,23 @@ public class UpdateInformationJPanel extends javax.swing.JPanel {
         }
         else
         {
-            //
+            for(Restaurant r: system.getRestaurantDirectory().getRestaurantList())
+            {
+                if(r.getRestaurantAdminUsername().equals(this.username))
+                {
+                    Restaurant cust = r;
+                    nameTextField.setText(cust.getName());
+                }
+            }
+           
+            for(UserAccount ua: system.getUserAccountDirectory().getUserAccountList())
+            {
+                if(ua.getUsername().equals(this.username))
+                {
+                    UserAccount userAccount = ua;
+                    passwordTextField.setText(userAccount.getPassword());
+                }
+            }
         }
 
     }
@@ -214,6 +201,17 @@ public class UpdateInformationJPanel extends javax.swing.JPanel {
             ManageDeliveryManJPanel manageDeliveryManJPanel = (ManageDeliveryManJPanel) component;
             manageDeliveryManJPanel.populateTable(); 
         }
+        else if(this.user.equals("Restaurant"))
+        {
+            ManageRestaurantsJPanel manageRestaurantsJPanel = (ManageRestaurantsJPanel) component;
+            manageRestaurantsJPanel.populateTable(); 
+        }
+        else
+        {
+            ManageAllCustomersJPanel manageAllCustomersJPanel = (ManageAllCustomersJPanel) component;
+            manageAllCustomersJPanel.populateTable(); 
+        }
+        
    
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -281,7 +279,22 @@ public class UpdateInformationJPanel extends javax.swing.JPanel {
         }
         else
         {
-            //
+            for (Restaurant r:system.getRestaurantDirectory().getRestaurantList())
+            {
+                if(r.getRestaurantAdminUsername().equals (this.username))
+                {
+                    Restaurant cust =r;
+                    cust.setName(nameTextField.getText());
+                }
+            }
+            for(UserAccount ua: system.getUserAccountDirectory().getUserAccountList())
+            {
+                if(ua.getUsername().equals(this.username))
+                {UserAccount userAccount = ua;
+                ua.setPassword(password);
+            }
+        }
+            JOptionPane.showMessageDialog(null,"Restaurant information updated successfully");
         }
         nameTextField.setText("");
         passwordTextField.setText("");
@@ -297,6 +310,7 @@ public class UpdateInformationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JPasswordField passwordTextField;
     private javax.swing.JButton submitJButton;
