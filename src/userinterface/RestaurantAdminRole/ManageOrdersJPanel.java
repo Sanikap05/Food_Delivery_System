@@ -179,7 +179,7 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
                     .addComponent(btnDeclineOrder)
                     .addComponent(btnBack)
                     .addComponent(btnAssign))
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

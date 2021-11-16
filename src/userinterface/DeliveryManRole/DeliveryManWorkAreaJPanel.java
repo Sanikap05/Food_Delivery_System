@@ -157,7 +157,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 if(wr.getOrder().getOrderId() == orderId)
                 {
                     wr.setStatus("Out for Delivery");
-                    JOptionPane.showMessageDialog(null, "The order is out for delivery;.");
+                    JOptionPane.showMessageDialog(null, "The order is out for delivery");
                     this.populateTable();
                     break;
                 }

@@ -60,7 +60,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 130, -1));
 
-        btncustomers.setText("Manage all Customers");
+        btncustomers.setText("Restaurant Menu");
         btncustomers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncustomersActionPerformed(evt);
@@ -68,7 +68,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         add(btncustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
 
-        btnrestaurants.setText("Manage all Restaurants");
+        btnrestaurants.setText("Orders");
         btnrestaurants.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnrestaurantsActionPerformed(evt);
