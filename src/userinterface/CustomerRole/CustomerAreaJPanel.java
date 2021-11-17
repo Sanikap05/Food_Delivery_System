@@ -70,9 +70,9 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                     } 
                     row[1]= sb;
                     row[2] = w.getOrder().getTotal();
-                    row[3] = null;
-                    row[4] = null;
-                    row[5] = w.getStatus();
+                    row[3] = w.getStatus();;
+                    
+                    
                     dtm.addRow(row);
                 }
   
@@ -103,17 +103,17 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Order ID", "Order Items", "Total", "Message", "Receiver", "Status"
+                "Order ID", "Order Items", "Total", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -125,7 +125,6 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             orderTable.getColumnModel().getColumn(0).setResizable(false);
             orderTable.getColumnModel().getColumn(1).setResizable(false);
             orderTable.getColumnModel().getColumn(2).setResizable(false);
-            orderTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
         btnNewOrder.setText("Place New Order");
