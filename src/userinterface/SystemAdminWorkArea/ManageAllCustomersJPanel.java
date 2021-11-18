@@ -59,9 +59,9 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         nameTextField = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        btnedit = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 204, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -129,7 +129,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 182, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, -1, -1));
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -137,10 +137,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 182, -1, -1));
-
-        jButton1.setText("View");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 182, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -152,14 +149,24 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 466, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        btnedit.setText("View");
+        btnedit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneditActionPerformed(evt);
+            }
+        });
+        add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -181,7 +188,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         
         if(system.checkIfUserIsUnique(username))
         {
-            Customer customer = system.getCustomerDirectory().createCustomer(name);
+            Customer customer = system.getCustomerDirectory().createCustomer(name,username);
             UserAccount ua = system.getUserAccountDirectory().createUserAccount(username, password, new CustomerRole());
             ua.setCustomer(customer);
             system.getUserCust().put(ua,customer);
@@ -200,29 +207,29 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
     public void populateTable() {
        DefaultTableModel dtm = (DefaultTableModel) customerTable.getModel();
         dtm.setRowCount(0);
-//        for (Customer customer : system.getCustomerDirectory().getCustomerList()) {
-//            Object row[] = new Object[2];
-//            row[0] = customer;
-//            row[1] = customer.getName();
-//            dtm.addRow(row);
-//        }
-    if(system.getUserCust() != null){
-    Iterator userCustIterator = system.getUserCust().entrySet().iterator(); 
-  
-        // Iterate through the hashmap 
-        // and add some bonus marks for every student 
-  
-  
-        while (userCustIterator.hasNext()) { 
-            Map.Entry mapElement = (Map.Entry)userCustIterator.next(); 
-            Customer cust = ((Customer)mapElement.getValue()); 
-            UserAccount ua  =((UserAccount)mapElement.getKey()); 
+        for (Customer customer : system.getCustomerDirectory().getCustomerList()) {
             Object row[] = new Object[2];
-            row[0] = ua.getUsername();
-            row[1] = cust.getName();
+            row[0] = customer.getCustomerUsername();
+            row[1] = customer;
             dtm.addRow(row);
-        } 
-}
+        }
+//    if(system.getUserCust() != null){
+//    Iterator userCustIterator = system.getUserCust().entrySet().iterator(); 
+//  
+//        // Iterate through the hashmap 
+//        // and add some bonus marks for every student 
+//  
+//  
+//        while (userCustIterator.hasNext()) { 
+//            Map.Entry mapElement = (Map.Entry)userCustIterator.next(); 
+//            Customer cust = ((Customer)mapElement.getValue()); 
+//            UserAccount ua  =((UserAccount)mapElement.getKey()); 
+//            Object row[] = new Object[2];
+//            row[0] = ua.getUsername();
+//            row[1] = cust.getName();
+//            dtm.addRow(row);
+//        } 
+//}
     }
     
   
@@ -260,6 +267,44 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        UserAccount u = null;
+        String password = String.valueOf(passwordTextField.getPassword());
+        int selectedRow = customerTable.getSelectedRow();
+         
+       
+        if(selectedRow >= 0) {
+            DefaultTableModel model = (DefaultTableModel)customerTable.getModel();
+            Customer r = (Customer) customerTable.getValueAt(selectedRow, 1);
+            //UpdateInformationJPanel updateUserInfo = new UpdateInformationJPanel(userProcessContainer, this.system, "Customer", r.getName());
+            String customerUsername = customerTable.getValueAt(selectedRow, 0).toString();
+            //System.out.println(r.getName()
+            //;
+            if(system.getCustomerDirectory().getCustomerList().contains(r))
+            {
+                r.setName(nameTextField.getText());
+                r.setCustomerUsername(usernameTextField.getText());
+               
+            }
+            for(UserAccount ua: system.getUserAccountDirectory().getUserAccountList())
+            {
+                if(ua.getUsername().equals(customerUsername))
+                {
+                    UserAccount userAccount = ua;
+                    ua.setPassword(password);
+                }
+            }
+            nameTextField.setText("");
+            usernameTextField.setText("");
+            passwordTextField.setText("");
+            populateTable();
+//            userProcessContainer.add("updateUserInfo",updateUserInfo);
+//            CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+//            layout.next(userProcessContainer);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Please select a Customer to update.");
+        }
+
 //        int selectedRow = customerTable.getSelectedRow();
 //        if(selectedRow >= 0) {
 //            Customer c = (Customer) customerTable.getValueAt(selectedRow, 0);
@@ -276,13 +321,35 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
 //        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
+    private void btneditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = customerTable.getSelectedRow();
+        if (selectedRow<0){
+            JOptionPane.showMessageDialog(this, "Select a row to edit customer details");
+            return;
+        }
+       
+        DefaultTableModel model = (DefaultTableModel)customerTable.getModel();
+        Customer selectedCustomer = (Customer)model.getValueAt(selectedRow, 1);
+        nameTextField.setText(selectedCustomer.getName());
+        usernameTextField.setText(selectedCustomer.getCustomerUsername());
+        for(UserAccount ua: system.getUserAccountDirectory().getUserAccountList())
+            {
+                if(ua.getUsername().equals(selectedCustomer.getCustomerUsername()))
+                {
+                    UserAccount userAccount = ua;
+                    passwordTextField.setText(userAccount.getPassword());
+                }
+            }
+    }//GEN-LAST:event_btneditActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnedit;
     private javax.swing.JTable customerTable;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

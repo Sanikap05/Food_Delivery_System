@@ -28,8 +28,8 @@ public class CustomerDirectory {
         this.customerList = customerList;
     }
     
-    public Customer createCustomer(String name){
-         Customer customer = new Customer(name);
+    public Customer createCustomer(String name, String customerUsername){
+         Customer customer = new Customer(name, customerUsername);
       if(!customerList.contains(customer)){
           System.out.println("adding ------customer"+name);
       customerList.add(customer);

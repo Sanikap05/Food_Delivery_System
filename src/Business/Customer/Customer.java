@@ -18,11 +18,22 @@ import java.util.Map;
  */
 public class Customer {
     
+    private String customerUsername;
+
+    public String getCustomerUsername() {
+        return customerUsername;
+    }
+
+    public void setCustomerUsername(String customerUsername) {
+        this.customerUsername = customerUsername;
+    }
+    
     private String name;
     private List<Order> custOrders;
     
-    public Customer(String name) {
+    public Customer(String name, String customerUsername) {
         this.name = name;
+        this.customerUsername=customerUsername;
     }
     
     public String getName() {
