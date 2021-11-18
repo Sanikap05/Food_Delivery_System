@@ -15,29 +15,29 @@ import java.util.List;
  */
 public class DeliveryManDirectory {
     
-    private List<DeliveryMan> deliverymanList;
+    private List<DeliveryMan> deliveryList;
 
     public DeliveryManDirectory() {
-        deliverymanList = new ArrayList();
+        deliveryList = new ArrayList();
     }
 
     public List<DeliveryMan> getDeliverymanList() {
-        return deliverymanList;
+        return deliveryList;
     }
 
     public void setDeliverymanList(List<DeliveryMan> deliverymanList) {
-        this.deliverymanList = deliverymanList;
+        this.deliveryList = deliverymanList;
     }
 
  
     public DeliveryMan createDeliveryman(String name, String username){
        
       DeliveryMan deliveryman = new DeliveryMan(name, username);
-        deliverymanList.add(deliveryman);
+        deliveryList.add(deliveryman);
       return deliveryman;
     }
     
     public void deleteDeliveryman(DeliveryMan d) {
-        deliverymanList.remove(d);
+        deliveryList.remove(d);
     }
 }

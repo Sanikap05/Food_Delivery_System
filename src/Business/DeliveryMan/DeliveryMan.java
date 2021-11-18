@@ -12,18 +12,18 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Sanik
+ * @author Harold
  */
 public class DeliveryMan extends Organization{
     
     private String name;
-    private String username;
+    private String user_name;
     private Order order;
 
     public DeliveryMan(String name, String username) {
         super(name);
         this.name = name;
-        this.username = username;
+        this.user_name = username;
     }
 
     public Order getOrder() {
@@ -36,11 +36,11 @@ public class DeliveryMan extends Organization{
     
 
     public String getUsername() {
-        return username;
+        return user_name;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.user_name = username;
     }
     
     public String getName() {
