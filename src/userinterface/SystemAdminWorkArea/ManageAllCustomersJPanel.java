@@ -8,6 +8,7 @@ package userinterface.SystemAdminWorkArea;
 import Business.Customer.Customer;
 import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
+import Business.Employee.Employee;
 import Business.Role.CustomerRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -240,6 +241,42 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        UserAccount u = null;
+        Employee e = null;
+        int selectedRow = customerTable.getSelectedRow();
+        if(selectedRow >= 0) {
+            DefaultTableModel model = (DefaultTableModel)customerTable.getModel();
+            Customer c = (Customer) customerTable.getValueAt(selectedRow, 1);
+            String customerUsername = customerTable.getValueAt(selectedRow, 0).toString();
+           
+            if(system.getCustomerDirectory().getCustomerList().contains(c))
+            {
+                for(UserAccount userAccount: system.getUserAccountDirectory().getUserAccountList())
+                {
+                    if(userAccount.getUsername().equals(customerUsername))
+                    {
+                        u = userAccount;
+                    }
+                }
+                for(Employee emp: system.getEmployeeDirectory().getEmployeeList())
+                {
+                    if(emp.getName().equals(c.getName()))
+                    {
+                        e = emp;
+                    }
+                }
+
+            }
+            system.getCustomerDirectory().deleteCustomer(c);
+            system.getUserAccountDirectory().deleteUserAccount(u);
+            system.getEmployeeDirectory().deleteEmployee(e);
+            populateTable();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please select a customer to delete.");
+        }
+
 //        UserAccount u = null;
 //        int selectedRow = customerTable.getSelectedRow();
 //        if(selectedRow >= 0) {
