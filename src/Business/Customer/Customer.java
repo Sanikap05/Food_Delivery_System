@@ -14,46 +14,46 @@ import java.util.Map;
 
 /**
  *
- * @author Sanik
+ * @author Harold
  */
 public class Customer {
     
-    private String customerUsername;
+    private String custuser;
 
     public String getCustomerUsername() {
-        return customerUsername;
+        return custuser;
     }
 
     public void setCustomerUsername(String customerUsername) {
-        this.customerUsername = customerUsername;
+        this.custuser = customerUsername;
     }
     
-    private String name;
-    private List<Order> custOrders;
+    private String cust_name;
+    private List<Order> custorder;
     
     public Customer(String name, String customerUsername) {
-        this.name = name;
-        this.customerUsername=customerUsername;
+        this.cust_name = name;
+        this.custuser=customerUsername;
     }
     
     public String getName() {
-        return name;
+        return cust_name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.cust_name = name;
     }
 
     public List<Order> getCustOrders() {
-        if(custOrders == null)
+        if(custorder == null)
         {
-            custOrders = new ArrayList();
+            custorder = new ArrayList();
         }
-        return custOrders;
+        return custorder;
     }
 
     public void setCustOrders(List<Order> custOrders) {
-        this.custOrders = custOrders;
+        this.custorder = custOrders;
     }
     
 

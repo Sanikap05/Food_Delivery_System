@@ -88,7 +88,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(customerTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 76, 384, 95));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 384, 95));
 
         jLabel1.setText("Username");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 245, -1, -1));
@@ -130,7 +130,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, -1, -1));
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +138,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -167,7 +167,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
                 btneditActionPerformed(evt);
             }
         });
-        add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

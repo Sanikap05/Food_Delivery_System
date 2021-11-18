@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Sanik
+ * @author raunak
  */
 public abstract class Organization {
 

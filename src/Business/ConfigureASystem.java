@@ -9,7 +9,7 @@ import Business.UserAccount.UserAccount;
 
 /**
  *
- * @author Sanik
+ * @author rrheg    
  */
 public class ConfigureASystem {
     

@@ -23,7 +23,7 @@ import java.util.Map;
 
 /**
  *
- * @author Sanik
+ * @author MyPC1
  */
 public class EcoSystem extends Organization{
     
