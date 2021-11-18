@@ -6,18 +6,18 @@ package Business.WorkQueue;
 
 /**
  *
- * @author Sanik
+ * @author 
  */
 public class LabTestWorkRequest extends WorkRequest{
     
-    private String testResult;
+    private String Result;
 
     public String getTestResult() {
-        return testResult;
+        return Result;
     }
 
-    public void setTestResult(String testResult) {
-        this.testResult = testResult;
+    public void setTestResult(String Result) {
+        this.Result = Result;
     }
     
     

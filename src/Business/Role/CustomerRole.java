@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Sanik
+ * @author Raunak
  */
 public class CustomerRole extends Role{
 
