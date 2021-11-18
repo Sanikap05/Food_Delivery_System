@@ -11,32 +11,32 @@ import java.util.Map;
 
 /**
  *
- * @author Sanik
+ * @author harold
  */
 public class Menu {
     
-    String foodItem;
-    Float price;
+    String food_Item;
+    Float value;
 
-    public Menu(String foodItem, Float price) {
-        this.foodItem = foodItem;
-        this.price = price;
+    public Menu(String food_Item, Float value) {
+        this.food_Item = food_Item;
+        this.value = value;
     }
 
     public String getFoodItem() {
-        return foodItem;
+        return food_Item;
     }
 
     public void setFoodItem(String foodItem) {
-        this.foodItem = foodItem;
+        this.food_Item = foodItem;
     }
 
     public Float getPrice() {
-        return price;
+        return value;
     }
 
     public void setPrice(Float price) {
-        this.price = price;
+        this.value = price;
     }
 
     @Override
