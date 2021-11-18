@@ -69,16 +69,16 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
                         sb.append(mapElement.getKey()+", ");
                     } 
                     row[1]= sb;
-                    row[2] = null;
+                    
                     if(w.getSender().getCustomer() == null)
                     {
-                       row[3] = this.restaurant.getName();
+                       row[2] = this.restaurant.getName();
                     }
                     else
                     {
-                        row[3] = w.getSender().getCustomer().getName(); 
+                        row[2] = w.getSender().getCustomer().getName(); 
                     }
-                    row[4] = w.getStatus();
+                    row[3] = w.getStatus();
                     dtm.addRow(row);
                 }
   
@@ -104,17 +104,17 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
 
         restaurantOrdersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Order Id", "Ordered Items", "Message", "Sender", "Status"
+                "Order Id", "Ordered Items", "Sender", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
