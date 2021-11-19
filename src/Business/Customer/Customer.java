@@ -18,42 +18,42 @@ import java.util.Map;
  */
 public class Customer {
     
-    private String custuser;
+    private String customerUsername;
 
     public String getCustomerUsername() {
-        return custuser;
+        return customerUsername;
     }
 
     public void setCustomerUsername(String customerUsername) {
-        this.custuser = customerUsername;
+        this.customerUsername = customerUsername;
     }
     
-    private String cust_name;
-    private List<Order> custorder;
+    private String name;
+    private List<Order> CustOrders;
     
     public Customer(String name, String customerUsername) {
-        this.cust_name = name;
-        this.custuser=customerUsername;
+        this.name = name;
+        this.customerUsername=customerUsername;
     }
     
     public String getName() {
-        return cust_name;
+        return name;
     }
 
     public void setName(String name) {
-        this.cust_name = name;
+        this.name = name;
     }
 
     public List<Order> getCustOrders() {
-        if(custorder == null)
+        if(CustOrders == null)
         {
-            custorder = new ArrayList();
+            CustOrders = new ArrayList();
         }
-        return custorder;
+        return CustOrders;
     }
 
     public void setCustOrders(List<Order> custOrders) {
-        this.custorder = custOrders;
+        this.CustOrders = custOrders;
     }
     
 

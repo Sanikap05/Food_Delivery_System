@@ -19,16 +19,16 @@ import java.util.List;
 public class Restaurant extends Organization{
     
     String name;
-    String restaurant_address;
+    String address;
     String restaurantAdminUsername;
     List<Menu> menu;
-    List<Order> rest_Orders;
+    List<Order> restOrders;
 
     
     public Restaurant(String name, String restaurantAdminUsername, String restaurant_address) {
         super(name);
         this.name = name;
-        this.restaurant_address = restaurant_address;
+        this.address = restaurant_address;
         this.restaurantAdminUsername = restaurantAdminUsername;
         this.menu = new ArrayList();
     }
@@ -42,11 +42,11 @@ public class Restaurant extends Organization{
     }
 
     public String getAddress() {
-        return restaurant_address;
+        return address;
     }
     
     public void setAddress() {
-        this.restaurant_address = restaurant_address;
+        this.address = address;
     }
 
     public String getRestaurantAdminUsername() {
@@ -70,15 +70,15 @@ public class Restaurant extends Organization{
     }
 
     public List<Order> getRestOrders() {
-        if(this.rest_Orders == null)
+        if(this.restOrders == null)
         {
-            rest_Orders = new ArrayList();
+            restOrders = new ArrayList();
         }
-        return rest_Orders;
+        return restOrders;
     }
 
     public void setRestOrders(List<Order> rest_Orders) {
-        this.rest_Orders = rest_Orders;
+        this.restOrders = rest_Orders;
     }
        
     

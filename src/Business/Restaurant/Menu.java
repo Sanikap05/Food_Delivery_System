@@ -15,28 +15,28 @@ import java.util.Map;
  */
 public class Menu {
     
-    String food_Item;
-    Float value;
+    String foodItem;
+    Float Price;
 
-    public Menu(String food_Item, Float value) {
-        this.food_Item = food_Item;
-        this.value = value;
+    public Menu(String foodItem, Float price) {
+        this.foodItem = foodItem;
+        this.Price = price;
     }
 
     public String getFoodItem() {
-        return food_Item;
+        return foodItem;
     }
 
     public void setFoodItem(String foodItem) {
-        this.food_Item = foodItem;
+        this.foodItem = foodItem;
     }
 
     public Float getPrice() {
-        return value;
+        return Price;
     }
 
     public void setPrice(Float price) {
-        this.value = price;
+        this.Price = price;
     }
 
     @Override

@@ -10,14 +10,14 @@ package Business.WorkQueue;
  */
 public class LabTestWorkRequest extends WorkRequest{
     
-    private String Result;
+    private String testResult;
 
     public String getTestResult() {
-        return Result;
+        return testResult;
     }
 
     public void setTestResult(String Result) {
-        this.Result = Result;
+        this.testResult = Result;
     }
     
     

@@ -14,25 +14,25 @@ import java.util.List;
  */
 public class RestaurantDirectory {
     
-    private List<Restaurant> restaurant_List;
+    private List<Restaurant> restaurantList;
 
     public RestaurantDirectory() {
-        restaurant_List = new ArrayList();
+        restaurantList = new ArrayList();
     }
 
     public List<Restaurant> getRestaurantList() {
-        return restaurant_List;
+        return restaurantList;
     }
 
     public void setRestaurantList(List<Restaurant> restaurant_List) {
-        this.restaurant_List = restaurant_List;
+        this.restaurantList = restaurant_List;
     }
     
     public void addRestaurant(Restaurant restaurant){
-        this.restaurant_List.add(restaurant);
+        this.restaurantList.add(restaurant);
     }
     
     public void deleteRestaurant(Restaurant r) {
-        this.restaurant_List.remove(r);
+        this.restaurantList.remove(r);
     }
 }

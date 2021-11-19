@@ -17,13 +17,13 @@ import java.util.ArrayList;
 public class DeliveryMan extends Organization{
     
     private String name;
-    private String user_name;
+    private String username;
     private Order order;
 
     public DeliveryMan(String name, String username) {
         super(name);
         this.name = name;
-        this.user_name = username;
+        this.username = username;
     }
 
     public Order getOrder() {
@@ -36,11 +36,11 @@ public class DeliveryMan extends Organization{
     
 
     public String getUsername() {
-        return user_name;
+        return username;
     }
 
     public void setUsername(String username) {
-        this.user_name = username;
+        this.username = username;
     }
     
     public String getName() {

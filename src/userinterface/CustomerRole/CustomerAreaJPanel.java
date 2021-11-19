@@ -22,7 +22,7 @@ import userinterface.SystemAdminWorkArea.ManageRestaurantsJPanel;
 
 /**
  *
- * @author Sanik
+ * @author Raunak
  */
 public class CustomerAreaJPanel extends javax.swing.JPanel {
 
