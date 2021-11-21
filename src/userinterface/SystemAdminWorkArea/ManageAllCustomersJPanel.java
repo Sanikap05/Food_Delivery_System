@@ -63,6 +63,8 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         btnedit = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        txtaddress = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 204, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -105,7 +107,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 312, -1, -1));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
         add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 242, 136, -1));
 
         submitJButton.setText("Submit");
@@ -114,7 +116,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
                 submitJButtonActionPerformed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 312, -1, -1));
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, -1, -1));
 
         passwordTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,6 +170,16 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
             }
         });
         add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
+
+        jLabel5.setText("Address");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
+
+        txtaddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtaddressActionPerformed(evt);
+            }
+        });
+        add(txtaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 130, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -186,10 +198,11 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         String name = nameTextField.getText();
         String username = usernameTextField.getText();
         String password = String.valueOf(passwordTextField.getPassword());
+        String address=txtaddress.getText();
         
         if(system.checkIfUserIsUnique(username))
         {
-            Customer customer = system.getCustomerDirectory().createCustomer(name,username);
+            Customer customer = system.getCustomerDirectory().createCustomer(name,username,address);
             UserAccount ua = system.getUserAccountDirectory().createUserAccount(username, password, new CustomerRole());
             ua.setCustomer(customer);
             system.getUserCust().put(ua,customer);
@@ -203,6 +216,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         nameTextField.setText("");
         usernameTextField.setText("");
         passwordTextField.setText("");
+        txtaddress.setText("");
     }//GEN-LAST:event_submitJButtonActionPerformed
     
     public void populateTable() {
@@ -320,6 +334,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
             {
                 r.setName(nameTextField.getText());
                 r.setCustomerUsername(usernameTextField.getText());
+                r.setCustomerAdd(txtaddress.getText());
                
             }
             for(UserAccount ua: system.getUserAccountDirectory().getUserAccountList())
@@ -333,6 +348,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
             nameTextField.setText("");
             usernameTextField.setText("");
             passwordTextField.setText("");
+             txtaddress.setText("");
             populateTable();
 //            userProcessContainer.add("updateUserInfo",updateUserInfo);
 //            CardLayout layout=(CardLayout)userProcessContainer.getLayout();
@@ -370,6 +386,7 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
         Customer selectedCustomer = (Customer)model.getValueAt(selectedRow, 1);
         nameTextField.setText(selectedCustomer.getName());
         usernameTextField.setText(selectedCustomer.getCustomerUsername());
+        txtaddress.setText(selectedCustomer.getCustomerAdd());
         for(UserAccount ua: system.getUserAccountDirectory().getUserAccountList())
             {
                 if(ua.getUsername().equals(selectedCustomer.getCustomerUsername()))
@@ -379,6 +396,10 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
                 }
             }
     }//GEN-LAST:event_btneditActionPerformed
+
+    private void txtaddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtaddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtaddressActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -391,11 +412,13 @@ public class ManageAllCustomersJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JPasswordField passwordTextField;
     private javax.swing.JButton submitJButton;
+    private javax.swing.JTextField txtaddress;
     private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
 

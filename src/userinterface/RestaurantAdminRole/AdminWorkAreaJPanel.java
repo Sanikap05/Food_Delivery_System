@@ -43,7 +43,6 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel = new javax.swing.JLabel();
         btncustomers = new javax.swing.JButton();
         btnrestaurants = new javax.swing.JButton();
-        btndeliveryman = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 204, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -75,14 +74,6 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(btnrestaurants, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
-
-        btndeliveryman.setText("Manage all Deliverman");
-        btndeliveryman.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndeliverymanActionPerformed(evt);
-            }
-        });
-        add(btndeliveryman, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageRestaurantInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRestaurantInfoActionPerformed
@@ -118,14 +109,9 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnrestaurantsActionPerformed
 
-    private void btndeliverymanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeliverymanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btndeliverymanActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncustomers;
-    private javax.swing.JButton btndeliveryman;
     private javax.swing.JButton btnrestaurants;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;

@@ -42,36 +42,34 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     }
     
     public void populateTable(){
-        System.out.println(this.dm);
-        //this.userAccount.getWorkQueue().getWorkRequestList()
-       if(this.dm.getWorkQueue().getWorkRequestList() != null)
-        {
-            DefaultTableModel dtm = (DefaultTableModel) deliverOrderTable.getModel();
-            dtm.setRowCount(0);
-            for (WorkRequest w : this.dm.getWorkQueue().getWorkRequestList()) 
-            {
-                if(w.getOrder() != null)
-                {
-                    Object row[] = new Object[5];
-                    row[0] = w.getOrder().getOrderId();
-                    row[1] = w.getSender().getUsername();
-                    row[2] = "TODO add receiver";
-//                    if(w.getSender().getCustomer() == null)
-//                    {
-//                       row[3] = this.restaurant.getName();
-//                    }
-//                    else
-//                    {
-//                        row[3] = w.getSender().getCustomer().getName(); 
-//                    }
-                    row[3] = null;
-                    row[4] = w.getStatus();
-                    dtm.addRow(row);
-                }
-  
-            }
-        }
+        
+                    
+    System.out.println(this.dm);
+    //this.userAccount.getWorkQueue().getWorkRequestList()
+    if(this.dm.getWorkQueue().getWorkRequestList() != null)
+    {
+    DefaultTableModel dtm = (DefaultTableModel)deliverOrderTable.getModel();
+    dtm.setRowCount(0);
+    for (WorkRequest w : this.dm.getWorkQueue().getWorkRequestList())
+    {
+    if(w.getOrder() != null)
+    {
+    Object row[] = new Object[6];
+    row[0] = w.getOrder().getOrderId();
+    row[1] = w.getSender().getUsername();
+    row[2] = w.getReceiver().getCustomer().getName();
+   
+    row[3] = w.getReceiver().getCustomer().getCustomerAdd();
+    row[4] = w.getOrder().getComment();
+    row[5] = w.getStatus();
+    dtm.addRow(row);
     }
+    }
+    }
+    }
+
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -95,17 +93,17 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
         deliverOrderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Sender", "Receiver", "Message", "Status"
+                "Order ID", "Sender", "Customer Name", "Customer Address", "Message", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -152,21 +150,22 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Order Status");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 530, 60));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 4, 610, 60));
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 80));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 80));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignActionPerformed
 
         int selectedRow = deliverOrderTable.getSelectedRow();
         
+        
         if(selectedRow >= 0)
         {
-            Integer orderId= (Integer)deliverOrderTable.getValueAt(selectedRow, 0);
+            String orderId= (String)deliverOrderTable.getValueAt(selectedRow, 0);
             for(WorkRequest wr: this.dm.getWorkQueue().getWorkRequestList())
             {
-                if(wr.getOrder().getOrderId() == orderId)
+                if(wr.getOrder().getOrderId().equals(orderId))
                 {
                     wr.setStatus("Out for Delivery");
                     JOptionPane.showMessageDialog(null, "The order is out for delivery");
@@ -185,10 +184,10 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         
         if(selectedRow >= 0)
         {
-            Integer orderId= (Integer)deliverOrderTable.getValueAt(selectedRow, 0);
+            String orderId= (String)deliverOrderTable.getValueAt(selectedRow, 0);
             for(WorkRequest wr: this.dm.getWorkQueue().getWorkRequestList())
             {
-                if(wr.getOrder().getOrderId() == orderId)
+                if(wr.getOrder().getOrderId().equals(orderId))
                 {
                     wr.setStatus("Delivered");
                     JOptionPane.showMessageDialog(null, "The order is delivered.");

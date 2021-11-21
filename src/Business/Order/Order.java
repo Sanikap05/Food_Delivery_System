@@ -19,27 +19,44 @@ import java.util.Map;
  */
 public class Order {
     
-    int orderId;
+    String orderId;
     List<Menu> orderItems;
     Map<String, Float> orderMap;
     float total;
-    private static int count = 1;
+    String comment;
+    String deliveryadd;
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getDeliveryadd() {
+        return deliveryadd;
+    }
+
+    public void setDeliveryadd(String deliveryadd) {
+        this.deliveryadd = deliveryadd;
+    }
+    
 
     public Order(Map<String, Float> orderMap, float total) {
         this.orderMap = orderMap;
         this.total = total;
     }
     
-    public int getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
     
-    public void setOrderId()
+    public void setOrderId(String orderId)
     {
         //long id = System.currentTimeMillis();
+        this.orderId=orderId;
        
-        this.orderId = count;
-        count++;
     }
 
     public List<Menu> getOrderItems() {

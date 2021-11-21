@@ -44,11 +44,15 @@ public class ConfirmOrderJPanel extends javax.swing.JPanel {
     
     public ConfirmOrderJPanel(JPanel userProcessContainer, UserAccount userAccount, RestaurantDirectory restaurantDirectory, Restaurant rest, Map<String,Float> cartMap) {
         initComponents();
+        
         this.userAccount = userAccount;
         this.rd  = restaurantDirectory;
         this.userProcessContainer = userProcessContainer;
         this.cartMap = cartMap;
         this.rest = rest;
+        String add = this.userAccount.getCustomer().getCustomerAdd();
+        lbl_address.setText(add);
+        
         this.populateTable();
      
     }
@@ -101,6 +105,12 @@ public class ConfirmOrderJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lbl_address = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txt_newaddress = new javax.swing.JTextField();
+        txt_message = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 204, 204));
 
@@ -159,27 +169,54 @@ public class ConfirmOrderJPanel extends javax.swing.JPanel {
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
         );
 
+        jLabel1.setText("Address");
+
+        jLabel4.setText("New Address");
+
+        jLabel6.setText("Message");
+
+        txt_message.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_messageActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(totalTextField))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBack)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnPlaceOrder)
-                                .addGap(10, 10, 10)))))
+                        .addComponent(btnBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnPlaceOrder))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(152, 152, 152)
+                                        .addComponent(jLabel3))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txt_message, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt_newaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addComponent(totalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(136, 136, 136)
+                                .addComponent(lbl_address, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -192,21 +229,61 @@ public class ConfirmOrderJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(totalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(42, 42, 42)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lbl_address, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txt_newaddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txt_message, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(btnPlaceOrder))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         // TODO add your handling code here:
-            Order order = new Order(cartMap, total);
-            order.setOrderId();
+            
+    String deliAddress = txt_newaddress.getText();
+    String message = txt_message.getText();
+    Order order = new Order(cartMap, total);
+    List<Order> custOrders = this.userAccount.getCustomer().getCustOrders();
+    String newOrderId = "";
+    Customer c = this.userAccount.getCustomer();
+    newOrderId = c.getCustomerCode();
+    // Order order = new Order(cartMap, total);
+    // List<Order> custOrders = this.userAccount.getCustomer().getCustOrders();
+    if(custOrders.isEmpty()){
+    newOrderId += "1";
+    order.setOrderId(newOrderId);
+    }
+    else{
+    Order lastItem = custOrders.get(custOrders.size()-1);
+    int orderId = Integer.valueOf(lastItem.getOrderId().substring(5));
+    newOrderId += String.valueOf(orderId + 1);
+    order.setOrderId(newOrderId);
+    }
+    if(deliAddress.isEmpty()){
+    order.setDeliveryadd(this.userAccount.getCustomer().getCustomerAdd());}
+    //order.setMessage(message);
+    else{
+    order.setDeliveryadd(deliAddress);}
+    //order.setOrderId();
+    order.setComment(message);
+
+
             workRequest = new WorkRequest();
             this.userAccount.getCustomer().getCustOrders().add(order);
             workRequest.setSender(this.userAccount);
+            workRequest.setReceiver(this.userAccount);
             workRequest.setStatus("Order Placed/Sent");
             workRequest.setOrder(order);
             //customer places order that goes to workrequest
@@ -226,15 +303,25 @@ public class ConfirmOrderJPanel extends javax.swing.JPanel {
        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void txt_messageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_messageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_messageActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnPlaceOrder;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_address;
     private javax.swing.JTable orderConfirmTable;
     private javax.swing.JTextField totalTextField;
+    private javax.swing.JTextField txt_message;
+    private javax.swing.JTextField txt_newaddress;
     // End of variables declaration//GEN-END:variables
 }

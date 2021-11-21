@@ -45,6 +45,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         orderTable.setFocusable(false);
         orderTable.setEnabled(false);
         //valueLabel.setText(enterprise.getName());
+        valueLabel.setText(this.userAccount.getCustomer().getName());
         populateTable();
     }
     
@@ -58,7 +59,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             {
                 if(w.getOrder() != null)
                 {
-                    Object row[] = new Object[6];
+                    Object row[] = new Object[7];
                     row[0] = w.getOrder().getOrderId();
                     System.out.println("printing order map "+ w.getOrder().getOrderMap());
                     Iterator itr = w.getOrder().getOrderMap().entrySet().iterator();
@@ -70,9 +71,10 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                     } 
                     row[1]= sb;
                     row[2] = w.getOrder().getTotal();
-                    row[3] = w.getStatus();;
-                    
-                    
+                    row[3] = w.getOrder().getComment();
+                    row[4] = w.getOrder().getDeliveryadd();
+                    row[5] = w.getStatus();
+
                     dtm.addRow(row);
                 }
   
@@ -103,17 +105,17 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Order Items", "Total", "Status"
+                "Order ID", "Order Items", "Total", "Message", "Delivery Address", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -190,7 +192,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -200,7 +202,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnNewOrder)
                     .addComponent(refreshTestJButton))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

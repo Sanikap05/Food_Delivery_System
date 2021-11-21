@@ -40,7 +40,7 @@ public class AssignToDeliverymanJPanel extends javax.swing.JPanel {
         dpdDeliveryman.removeAllItems();
         this.populateDeliveryMan();
         orderIdTextField.setEditable(false);
-        orderIdTextField.setText(Integer.toString(this.order.getOrderId()));
+        orderIdTextField.setText(this.order.getOrderId());
     }
 
     /**
@@ -82,7 +82,7 @@ public class AssignToDeliverymanJPanel extends javax.swing.JPanel {
         });
         add(dpdDeliveryman, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 106, 169, -1));
 
-        jLabel1.setText("Order id:");
+        jLabel1.setText("Order Id:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 150, -1, -1));
 
         orderIdTextField.addActionListener(new java.awt.event.ActionListener() {

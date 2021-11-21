@@ -30,10 +30,30 @@ public class Customer {
     
     private String name;
     private List<Order> CustOrders;
+    private String customerAdd;
+    private String CustomerCode;
     
-    public Customer(String name, String customerUsername) {
+    public Customer(String name, String customerUsername,String customerAdd, String CustomerCode) {
         this.name = name;
         this.customerUsername=customerUsername;
+        this.CustomerCode=CustomerCode;
+        this.customerAdd=customerAdd;
+    }
+
+    public String getCustomerAdd() {
+        return customerAdd;
+    }
+
+    public void setCustomerAdd(String customerAdd) {
+        this.customerAdd = customerAdd;
+    }
+
+    public String getCustomerCode() {
+        return CustomerCode;
+    }
+
+    public void setCustomerCode(String CustomerCode) {
+        this.CustomerCode = CustomerCode;
     }
     
     public String getName() {

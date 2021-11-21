@@ -13,6 +13,7 @@ import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -59,7 +60,7 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
             {
                 if(w.getOrder() != null)
                 {
-                    Object row[] = new Object[5];
+                    Object row[] = new Object[7];
                     row[0] = w.getOrder().getOrderId();
                     Iterator itr = w.getOrder().getOrderMap().entrySet().iterator();
                     StringBuilder sb = new StringBuilder("");
@@ -68,18 +69,35 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
                         Map.Entry mapElement = (Map.Entry)itr.next(); 
                         sb.append(mapElement.getKey()+", ");
                     } 
+                   
                     row[1]= sb;
-                    
+                    //System.out.println(w.getReceiver().getCustomer().getName());
+                    row[2] = w.getReceiver().getCustomer().getName();
+                    row[3] = w.getOrder().getComment();
                     if(w.getSender().getCustomer() == null)
                     {
-                       row[2] = this.restaurant.getName();
+                    row[4] = this.restaurant.getName();
                     }
                     else
                     {
-                        row[2] = w.getSender().getCustomer().getName(); 
+                    row[4] = w.getSender().getCustomer().getName();
+                    // w.setReceiver(w.getSender().getCustomer().getName());
                     }
-                    row[3] = w.getStatus();
+                    System.out.println("custorder before");
+                    List<Order> custOrder = w.getReceiver().getCustomer().getCustOrders();
+                    System.out.println("custorder before"+custOrder);
+                    String add = "";
+                    for(Order o : custOrder)
+                    {
+                    if(o.getOrderId().equals(w.getOrder().getOrderId()))
+                    add = o.getDeliveryadd();
+                    }
+                    //JOptionPane.showMessageDialog(null, "Address : " + add);
+                    row[5] = add;
+                    row[6] = w.getStatus();
                     dtm.addRow(row);
+
+
                 }
   
             }
@@ -104,17 +122,17 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
 
         restaurantOrdersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Order Id", "Ordered Items", "Sender", "Status"
+                "Order Id", "Ordered Items", "Customer Name", "Message", "Sender", "Customer Address", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -185,10 +203,10 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
         int selectedRow = restaurantOrdersTable.getSelectedRow();
         if(selectedRow >= 0)
         {
-            Integer orderId= (Integer)restaurantOrdersTable.getValueAt(selectedRow, 0);
+            String orderId= (String)restaurantOrdersTable.getValueAt(selectedRow, 0);
             for(WorkRequest wr: this.restaurant.getWorkQueue().getWorkRequestList())
             {
-                if(wr.getOrder().getOrderId() == orderId)
+                if(wr.getOrder().getOrderId().equals(orderId))
                 {
                   if(wr.getStatus().equalsIgnoreCase("Assinged to delivery Man"))
                    {
@@ -226,10 +244,10 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
         int selectedRow = restaurantOrdersTable.getSelectedRow();
         if(selectedRow >= 0)
         {
-           Integer orderId= (Integer)restaurantOrdersTable.getValueAt(selectedRow, 0);
+           String orderId= (String)restaurantOrdersTable.getValueAt(selectedRow, 0);
             for(WorkRequest wr: this.restaurant.getWorkQueue().getWorkRequestList())
             {
-                if(wr.getOrder().getOrderId() == orderId)
+                if(wr.getOrder().getOrderId().equals(orderId))
                 {
                   wr.setStatus("Decline");
                   this.populateTable();
@@ -244,10 +262,10 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
         int selectedRow = restaurantOrdersTable.getSelectedRow();
         if(selectedRow >= 0)
         {
-            Integer orderId= (Integer)restaurantOrdersTable.getValueAt(selectedRow, 0);
+            String orderId= (String)restaurantOrdersTable.getValueAt(selectedRow, 0);
             for(WorkRequest wr: this.restaurant.getWorkQueue().getWorkRequestList())
             {
-                if(wr.getOrder().getOrderId() ==  orderId)
+                if(wr.getOrder().getOrderId().equals(orderId))
                 {
                     order = wr.getOrder();
                     break;

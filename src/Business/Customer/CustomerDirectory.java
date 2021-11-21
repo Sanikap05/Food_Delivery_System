@@ -7,6 +7,7 @@ package Business.Customer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -28,8 +29,21 @@ public class CustomerDirectory {
         this.customerList = customerList;
     }
     
-    public Customer createCustomer(String name, String customerUsername){
-         Customer customer = new Customer(name, customerUsername);
+    public Customer createCustomer(String name, String customerUsername,String customerAdd){
+        int leftLimit = 65; // letter 'a'
+    int rightLimit = 90; // letter 'z'
+    int targetStringLength = 3 ;
+    Random random = new Random();
+    StringBuilder buffer = new StringBuilder(targetStringLength);
+    for (int i = 0; i < targetStringLength; i++) {
+    int randomLimitedInt = leftLimit + (int)
+    (random.nextFloat() * (rightLimit - leftLimit + 1));
+    buffer.append((char) randomLimitedInt);
+    }
+    String customerCode = buffer.toString() + name.substring(0,2).toUpperCase();
+
+ 
+        Customer customer = new Customer(name, customerUsername, customerAdd, customerCode);
       if(!customerList.contains(customer)){
           System.out.println("adding ------customer"+name);
       customerList.add(customer);
