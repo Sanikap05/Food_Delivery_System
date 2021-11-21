@@ -149,7 +149,7 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
                 btnAcceptOrderActionPerformed(evt);
             }
         });
-        add(btnAcceptOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 222, -1, -1));
+        add(btnAcceptOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
 
         btnDeclineOrder.setText("Decline Order");
         btnDeclineOrder.addActionListener(new java.awt.event.ActionListener() {
@@ -157,7 +157,7 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
                 btnDeclineOrderActionPerformed(evt);
             }
         });
-        add(btnDeclineOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, -1, -1));
+        add(btnDeclineOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, -1, -1));
 
         btnAssign.setText("Assign to DeliveryMan");
         btnAssign.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +165,7 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
                 btnAssignActionPerformed(evt);
             }
         });
-        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, -1));
+        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, -1, -1));
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -173,7 +173,7 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 222, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 

@@ -36,10 +36,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }
     
     public void populateTree(){
-        DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
+       // DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
        // Add the code for draw your system structure shown by JTree
        
-        model.reload();
+       // model.reload();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,8 +58,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageAllCustomers = new javax.swing.JButton();
         btnManageRestaurants = new javax.swing.JButton();
         btnManageDeliveryman = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTree = new javax.swing.JTree();
+        jPanel3 = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -108,7 +107,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(btnManageRestaurants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnManageAllCustomers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,9 +130,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,14 +143,20 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane.setLeftComponent(jPanel1);
 
-        jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
-            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
-                jTreeValueChanged(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTree);
+        jPanel3.setBackground(new java.awt.Color(0, 204, 204));
 
-        jSplitPane.setRightComponent(jScrollPane1);
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 382, Short.MAX_VALUE)
+        );
+
+        jSplitPane.setRightComponent(jPanel3);
 
         add(jSplitPane, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -182,14 +187,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageDeliveryManActionPerformed
 
-    private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged
-        
-        DefaultMutableTreeNode selectedNode= (DefaultMutableTreeNode)jTree.getLastSelectedPathComponent();
-        if(selectedNode!=null){
-            lblSelectedNode.setText(selectedNode.toString());
-        }
-    }//GEN-LAST:event_jTreeValueChanged
-
     private void btnManageDeliverymanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDeliverymanActionPerformed
         // TODO add your handling code here:
         ManageDeliveryManJPanel manageDeliveryMan = new ManageDeliveryManJPanel(userProcessContainer, ecosystem);
@@ -207,9 +204,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JSplitPane jSplitPane;
-    private javax.swing.JTree jTree;
     private javax.swing.JLabel lblSelectedNode;
     // End of variables declaration//GEN-END:variables
 }
